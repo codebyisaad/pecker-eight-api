@@ -16,6 +16,18 @@ Stuffs API is a Django-based application designed to manage Specifications, Grou
 
 ## Installation
 
+### 1. **Clone the repository**:
+```sh
+   git clone https://github.com/yourusername/stuffs-api.git
+   cd lennar-api
+   chmod +x ./bin/**/*
+```
+
+### 2. **Use Docker to run the project**
+```sh
+   docker-compose up -d
+```
+
 This code is supposed to run inside the container
 ### 3. Connect to Running container
 ```sh
