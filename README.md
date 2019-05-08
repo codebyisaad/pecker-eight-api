@@ -28,6 +28,16 @@ Stuffs API is a Django-based application designed to manage Specifications, Grou
    docker-compose up -d
 ```
 
+OR
+```sh
+./bin/start-all
+```
+That's all you will be able to access the application at localhost:8000
+
+
+## Seeding Data
+To seed the database with initial data, run the custom Django management command:
+
 This code is supposed to run inside the container
 ### 3. Connect to Running container
 ```sh
