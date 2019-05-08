@@ -40,3 +40,10 @@ python manage.py seed_data
 
 ## CRUD Operations
 
+### Implementation
+
+- **Serializers**:
+  - `SpecificationSerializer`: Handles the validation and serialization of Specifications.
+  - `GroupSerializer`: Handles the validation and serialization of Groups.
+  - `ComponentSerializer`: Handles the validation and serialization of Components.
+
