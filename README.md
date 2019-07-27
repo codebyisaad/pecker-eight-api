@@ -87,3 +87,9 @@ python manage.py seed_data
   - `GroupSerializer`: Handles the validation and serialization of Groups.
   - `ComponentSerializer`: Handles the validation and serialization of Components.
 
+- **Serializer**:
+  - `SpecificationCloneSerializer`: Handles the validation and cloning of specifications.
+
+- **View**:
+  - `SpecificationViewSet.clone`: Action in the `SpecificationViewSet` that handles the cloning functionality.
+
