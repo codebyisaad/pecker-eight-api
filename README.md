@@ -102,3 +102,9 @@ python manage.py seed_data
 - **View**:
   - `SpecificationViewSet.clone`: Action in the `SpecificationViewSet` that handles the cloning functionality.
 
+| Method | Endpoint                                   | Description                       |
+|--------|--------------------------------------------|-----------------------------------|
+| POST   | /api/stuffs/specifications/import_data/    | Import specifications, groups, and components from a JSON file |
+
+### Implementation
+
