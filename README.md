@@ -87,6 +87,15 @@ python manage.py seed_data
   - `GroupSerializer`: Handles the validation and serialization of Groups.
   - `ComponentSerializer`: Handles the validation and serialization of Components.
 
+- **Views**:
+  - `SpecificationViewSet`: Uses Django Rest Framework's ModelViewSet to handle CRUD operations for specifications.
+  - `NestedSpecificationGroupViewSet`: Uses Custom Viewset to provide List and Create operations for *groups in a specification.
+  - `NestedSpecificationComponentsViewSet`: Uses Custom Viewset to provide List and Create operations for *Components* in a specification.
+  - `GroupViewSet`: Uses Django Rest Framework's ModelViewSet to handle CRUD operations for groups.
+  - `ComponentViewSet`: Uses Django Rest Framework's ModelViewSet to handle CRUD operations for components.
+
+## Clone Specifications
+
 - **Serializer**:
   - `SpecificationCloneSerializer`: Handles the validation and cloning of specifications.
 
