@@ -102,6 +102,10 @@ python manage.py seed_data
 - **View**:
   - `SpecificationViewSet.clone`: Action in the `SpecificationViewSet` that handles the cloning functionality.
 
+The import functionality allows you to import specifications, groups, and components from a JSON file. The data is validated and saved in a single transaction to ensure data integrity.
+
+### API Endpoint
+
 | Method | Endpoint                                   | Description                       |
 |--------|--------------------------------------------|-----------------------------------|
 | POST   | /api/stuffs/specifications/import_data/    | Import specifications, groups, and components from a JSON file |
