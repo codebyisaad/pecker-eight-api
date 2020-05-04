@@ -36,3 +36,9 @@ ROOT_URLCONF = "config.urls"
 WSGI_APPLICATION = "config.wsgi.application"
 
 
+THIRD_PARTY_APPS = [
+    "django_extensions",
+    "rest_framework",
+    "corsheaders",
+]
+
