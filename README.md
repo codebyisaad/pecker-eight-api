@@ -128,3 +128,7 @@ The import functionality allows you to import specifications, groups, and compon
 
 ### Implementation
 
+The built specifications report generates a CSV file containing the specification codes and the number of built specifications derived from each `code_number`.
+
+### API Endpoint
+
