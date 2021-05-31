@@ -13,3 +13,12 @@ class SpecificationFactory(DjangoModelFactory):
     status = "Planning Phase"
 
 
+class GroupFactory(DjangoModelFactory):
+    class Meta:
+        model = Group
+
+    name = factory.Faker("word")
+    group_code = factory.Faker("ean8")
+    specification = factory.SubFactory(SpecificationFactory)
+
+
