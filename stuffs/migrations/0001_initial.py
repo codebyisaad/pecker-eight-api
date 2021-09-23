@@ -11,3 +11,12 @@ class Migration(migrations.Migration):
 
     dependencies = []
 
+                    "created",
+                    model_utils.fields.AutoCreatedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="created",
+                    ),
+                ),
+                (
+                    "modified",
