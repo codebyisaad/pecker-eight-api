@@ -20,3 +20,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "modified",
+                        default=django.utils.timezone.now,
+                        monitor="status",
+                        verbose_name="status changed",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("code_number", models.CharField(max_length=50)),
+                ("completed", models.BooleanField(default=False)),
