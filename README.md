@@ -138,5 +138,9 @@ The built specifications report generates a CSV file containing the specificatio
 - **View**:
   - `SpecificationViewSet.built_specifications_report`: Action in the `SpecificationViewSet` that generates the report using the `built_count` method and uses `pandas` to convert the report data to a CSV file.
 
+## Running Tests
+
+To run the tests, use the following command:
+
 ```sh
 python manage.py test
