@@ -11,6 +11,12 @@ class Migration(migrations.Migration):
 
     dependencies = []
 
+    operations = [
+        migrations.CreateModel(
+            name="Specification",
+            fields=[
+                (
+                    "id",
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
