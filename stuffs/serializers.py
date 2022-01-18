@@ -27,3 +27,15 @@ class SpecificationSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
 
+    def __init__(self, *args, **kwargs):
+        specification = kwargs.pop("specification", None)
+        super().__init__(*args, **kwargs)
+
+        self.specification = self.instance_specification or specification
+
+    @property
+    def instance_specification(self):
+        if hasattr(self, "instance") and isinstance(self.instance, Component):
+            return self.instance.specification
+        return None
+
