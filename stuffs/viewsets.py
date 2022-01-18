@@ -8,3 +8,14 @@ from rest_framework.viewsets import ModelViewSet
 from core.viewmixins import NestedObjectMixin
 from core.viewsets import CreateListViewSet, RetrieveUpdateDestroyViewset
 
+from .models import Component, Group, Specification
+from .serializers import (
+    ComponentSerializer,
+    GroupSerializer,
+    PartCodeAssignmentSerializer,
+    SpecificationCloneSerializer,
+    SpecificationImportSerializer,
+    SpecificationSerializer,
+)
+
+
