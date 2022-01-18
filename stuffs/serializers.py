@@ -20,3 +20,10 @@ class SpecificationSerializer(serializers.HyperlinkedModelSerializer):
 
         return value
 
+    def validate(self, data):
+        if self.instance and self.instance.completed:
+            raise serializers.ValidationError("Cannot modify a specification that has been completed.")
+
+        return data
+
+
