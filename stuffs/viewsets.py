@@ -19,3 +19,7 @@ from .serializers import (
 )
 
 
+class SpecificationViewSet(ModelViewSet):
+    queryset = Specification.objects.all()
+    serializer_class = SpecificationSerializer
+
