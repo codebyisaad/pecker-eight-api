@@ -27,6 +27,9 @@ class SpecificationSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
 
+class GroupSerializer(serializers.HyperlinkedModelSerializer):
+    components = serializers.StringRelatedField(many=True, read_only=True)
+
     def __init__(self, *args, **kwargs):
         specification = kwargs.pop("specification", None)
         super().__init__(*args, **kwargs)
