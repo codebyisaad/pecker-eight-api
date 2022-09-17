@@ -42,3 +42,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
             return self.instance.specification
         return None
 
+    def validate_group(self, value):
+        if self.specification and value.specification != self.specification:
+            raise serializers.ValidationError("Group must be in the same specification as the component.")
+
+        return value
+
+
