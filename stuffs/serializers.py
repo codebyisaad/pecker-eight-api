@@ -31,6 +31,19 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
     components = serializers.StringRelatedField(many=True, read_only=True)
 
     def __init__(self, *args, **kwargs):
+        self.specification = kwargs.pop("specification", None)
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Group
+        fields = "__all__"
+        read_only_fields = ("specification",)
+
+    def validate_name(self, value):
+        if Group.objects.filter(name=value).exclude(specification=self.specification).exists():
+            raise serializers.ValidationError(f"The group name '{value}' is already in use by another specification.")
+
+    def __init__(self, *args, **kwargs):
         specification = kwargs.pop("specification", None)
         super().__init__(*args, **kwargs)
 

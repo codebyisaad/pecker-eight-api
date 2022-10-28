@@ -40,3 +40,4 @@ class SpecificationViewSet(ModelViewSet):
         built_count = Specification.reports.built_count()
         df = pd.DataFrame.from_records(built_count)
 
+
