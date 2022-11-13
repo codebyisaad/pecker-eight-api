@@ -65,3 +65,16 @@ docs/_build/
 # PyBuilder
 target/
 
+# Virtual environment
+.env/
+.venv/
+venv/
+
+# PyCharm
+.idea
+
+# Python mode for VIM
+**/.ropeproject/*
+
+# Vim swap files
+**/.swp/*
