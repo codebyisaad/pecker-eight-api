@@ -70,4 +70,9 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         return value
 
 
+class PartCodeAssignmentSerializer(BaseComponentSerializer):
+    class Meta:
+        model = Component
+        fields = ["part_code"]
+
 
