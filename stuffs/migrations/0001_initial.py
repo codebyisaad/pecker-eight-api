@@ -60,3 +60,11 @@ class Migration(migrations.Migration):
                             ("Design Phase", "Design Phase"),
                             ("Design Ready", "Design Ready"),
                             ("Building Phase", "Building Phase"),
+                "ordering": ("-created",),
+            },
+        ),
+        migrations.CreateModel(
+            name="Group",
+            fields=[
+                (
+                    "id",
