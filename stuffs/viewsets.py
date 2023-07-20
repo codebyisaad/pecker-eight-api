@@ -41,3 +41,12 @@ class SpecificationViewSet(ModelViewSet):
         df = pd.DataFrame.from_records(built_count)
 
 
+class BaseNestedSpecificationViewSet(NestedObjectMixin, CreateListViewSet):
+    parent_model = Specification
+    parent_object_lookup_field = "specification_pk"
+
+    def get_serializer(self, *args, **kwargs):
+        kwargs.update(specification=self.get_parent_object())
+
+        return super().get_serializer(*args, **kwargs)
+
