@@ -81,3 +81,13 @@ class PartCodeAssignmentSerializer(BaseComponentSerializer):
         fields = ["part_code"]
 
 
+    def clone_component(self, component, group, specification, include_parts):
+        component.pk = None
+        component.group = group
+        if not include_parts:
+            component.part_code = None
+        component.specification = specification
+
+        return component
+
+
