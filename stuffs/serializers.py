@@ -51,6 +51,11 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
 
+class BaseComponentSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Component
+        fields = "__all__"
+
     def __init__(self, *args, **kwargs):
         specification = kwargs.pop("specification", None)
         super().__init__(*args, **kwargs)
