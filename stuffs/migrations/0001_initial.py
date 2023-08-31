@@ -68,3 +68,12 @@ class Migration(migrations.Migration):
             fields=[
                 (
                     "id",
+                "ordering": ("-created",),
+            },
+        ),
+        migrations.CreateModel(
+            name="Component",
+            fields=[
+                (
+                    "id",
+                    models.BigAutoField(
