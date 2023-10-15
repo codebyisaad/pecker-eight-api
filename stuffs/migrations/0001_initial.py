@@ -77,3 +77,12 @@ class Migration(migrations.Migration):
                 (
                     "id",
                     models.BigAutoField(
+                    model_utils.fields.AutoCreatedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="created",
+                    ),
+                ),
+                (
+                    "modified",
+                    model_utils.fields.AutoLastModifiedField(
