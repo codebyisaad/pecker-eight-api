@@ -4,6 +4,9 @@ from model_utils import Choices
 from model_utils.fields import StatusField
 from model_utils.models import StatusModel, TimeStampedModel
 
+from .managers import SpecificationReportManager
+
+
 class Specification(TimeStampedModel, StatusModel):
     STATUS = Choices("Planning Phase", "Planning Ready", "Design Phase", "Design Ready", "Building Phase", "Built")
 
