@@ -81,6 +81,15 @@ class PartCodeAssignmentSerializer(BaseComponentSerializer):
         fields = ["part_code"]
 
 
+    def validate(self, data):
+        if self.specification is None:
+            raise serializers.ValidationError("Specification must be specified.")
+
+        if self.specification.status not in ["Planning Phase", "Planning Ready"]:
+            raise serializers.ValidationError("Only specifications in Planning Phase or Planning Ready can be cloned.")
+
+        return super().validate(data)
+
     def clone_component(self, component, group, specification, include_parts):
         component.pk = None
         component.group = group
