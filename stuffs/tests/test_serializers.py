@@ -10,6 +10,7 @@ from stuffs.serializers import (
     SpecificationSerializer,
 )
 
+
     def test_validate_modification_of_completed_specification(self):
         self.specification.completed = True
         self.specification.save()
