@@ -3,6 +3,9 @@
 import factory
 from factory.django import DjangoModelFactory
 
+from .models import Component, Group, Specification
+
+
 class SpecificationFactory(DjangoModelFactory):
     class Meta:
         model = Specification
