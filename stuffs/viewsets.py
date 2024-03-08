@@ -55,6 +55,13 @@ class SpecificationViewSet(ModelViewSet):
         built_count = Specification.reports.built_count()
         df = pd.DataFrame.from_records(built_count)
 
+        response = HttpResponse(content_type="text/csv")
+        response["Content-Disposition"] = 'attachment; filename="built_specifications_report.csv"'
+
+        df.to_csv(path_or_buf=response, index=False, header=["Specification Code", "Number of Built Specifications"])
+
+        return response
+
 
 class BaseNestedSpecificationViewSet(NestedObjectMixin, CreateListViewSet):
     parent_model = Specification
