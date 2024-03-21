@@ -25,3 +25,4 @@ except psycopg2.OperationalError:
     sys.exit(-1)
 sys.exit(0)
 
+exec "$@"
