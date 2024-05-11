@@ -128,6 +128,13 @@ The import functionality allows you to import specifications, groups, and compon
 
 ### Implementation
 
+- **Serializer**:
+  - `SpecificationImportSerializer`: Handles the validation and creation of nested specifications, groups, and components.
+  - `SpecificationImportExportSerializer`: Used within `SpecificationImportSerializer` to handle nested data validation.
+
+- **View**:
+  - `SpecificationViewSet.import_data`: Action in the `SpecificationViewSet` that handles the import functionality.
+
 ## Export Built Specifications Report
 
 ### Overview
