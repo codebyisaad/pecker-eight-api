@@ -97,6 +97,14 @@ class PartCodeAssignmentSerializer(BaseComponentSerializer):
 
         return super().validate(data)
 
+        return cloned_specification
+
+    def clone_group(self, group, specification):
+        group.pk = None
+        group.specification = specification
+
+        return group
+
     def clone_component(self, component, group, specification, include_parts):
         component.pk = None
         component.group = group
