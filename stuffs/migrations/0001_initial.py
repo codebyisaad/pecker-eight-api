@@ -104,3 +104,12 @@ class Migration(migrations.Migration):
                 (
                     "modified",
                     model_utils.fields.AutoLastModifiedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="modified",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("part_code", models.CharField(blank=True, max_length=200, null=True)),
+                (
