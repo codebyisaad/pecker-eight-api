@@ -97,6 +97,24 @@ class PartCodeAssignmentSerializer(BaseComponentSerializer):
 
         return super().validate(data)
 
+    def clone(self):
+        cloned_specification = deepcopy(self.specification)
+        include_parts = self.validated_data.get("include_parts", False)
+
+        cloned_specification.pk = None
+        cloned_specification.status = "Planning Phase" if not include_parts else "Design Phase"
+        cloned_specification.save()
+
+        cloned_groups = {
+            group.name: self.clone_group(group, cloned_specification) for group in self.specification.groups.all()
+        }
+        cloned_components = [
+            self.clone_component(component, cloned_groups[component.group.name], cloned_specification, include_parts)
+            for component in self.specification.components.all()
+        ]
+        Group.objects.bulk_create(cloned_groups.values())
+        Component.objects.bulk_create(cloned_components)
+
         return cloned_specification
 
     def clone_group(self, group, specification):
