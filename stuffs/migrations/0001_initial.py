@@ -86,6 +86,15 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created",
+                    "specification",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="groups",
+                        to="stuffs.specification",
+                    ),
+                ),
+            ],
+            options={
                 "ordering": ("-created",),
             },
         ),
