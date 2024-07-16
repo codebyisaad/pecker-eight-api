@@ -140,3 +140,13 @@ class PartCodeAssignmentSerializer(BaseComponentSerializer):
 
 
 
+        for spec_data in specifications_data:
+            # Extract and pop the nested data for groups
+            groups_data = spec_data.pop("groups", [])
+
+            # Create the specification
+            specification = self.create_specification(spec_data)
+
+            # Create nested groups and components
+            self.create_groups(groups_data, specification)
+
