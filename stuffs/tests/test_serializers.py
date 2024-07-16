@@ -11,6 +11,13 @@ from stuffs.serializers import (
 )
 
 
+    def test_validate_completed_with_parts(self):
+        self.component.part_code = "PART001"
+        self.component.save()
+        serializer = SpecificationSerializer(self.specification, data={"completed": True}, partial=True)
+        self.assertTrue(serializer.is_valid())
+        self.assertEqual(serializer.validated_data["completed"], True)
+
     def test_validate_modification_of_completed_specification(self):
         self.specification.completed = True
         self.specification.save()
