@@ -94,6 +94,14 @@ class PartCodeAssignmentSerializer(BaseComponentSerializer):
         fields = ["part_code"]
 
 
+class SpecificationCloneSerializer(serializers.Serializer):
+    include_parts = serializers.BooleanField(default=False)
+
+    def __init__(self, *args, **kwargs):
+        self.specification = kwargs.pop("specification", None)
+
+        super().__init__(*args, **kwargs)
+
     def validate(self, data):
         if self.specification is None:
             raise serializers.ValidationError("Specification must be specified.")
