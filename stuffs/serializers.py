@@ -148,6 +148,13 @@ class SpecificationCloneSerializer(serializers.Serializer):
 
 
 
+class SpecificationImportSerializer(serializers.Serializer):
+    specifications = SpecificationImportExportSerializer(many=True)
+
+    def create(self, validated_data):
+        specifications_data = validated_data["specifications"]
+        created_specifications = []
+
         for spec_data in specifications_data:
             # Extract and pop the nested data for groups
             groups_data = spec_data.pop("groups", [])

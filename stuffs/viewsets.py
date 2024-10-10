@@ -82,6 +82,7 @@ class NestedSpecificationGroupViewSet(BaseNestedSpecificationViewSet):
     def get_queryset(self):
         return Group.objects.filter(specification_id=self.look_up_field_value)
 
+
 class ComponentViewSet(RetrieveUpdateDestroyViewset):
     queryset = Component.objects.all()
     serializer_class = ComponentSerializer
