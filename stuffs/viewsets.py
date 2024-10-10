@@ -83,6 +83,11 @@ class NestedSpecificationGroupViewSet(BaseNestedSpecificationViewSet):
         return Group.objects.filter(specification_id=self.look_up_field_value)
 
 
+class GroupViewSet(RetrieveUpdateDestroyViewset):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+
 class ComponentViewSet(RetrieveUpdateDestroyViewset):
     queryset = Component.objects.all()
     serializer_class = ComponentSerializer
