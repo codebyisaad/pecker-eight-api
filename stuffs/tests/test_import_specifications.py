@@ -28,3 +28,8 @@ from ..models import Component, Group, Specification
             ]
         }
 
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Specification.objects.count(), 1)
+        self.assertEqual(Group.objects.count(), 2)
+        self.assertEqual(Component.objects.count(), 3)
+
