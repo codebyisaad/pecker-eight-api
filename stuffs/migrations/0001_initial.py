@@ -131,3 +131,8 @@ class Migration(migrations.Migration):
                 ("description", models.TextField()),
                 ("part_code", models.CharField(blank=True, max_length=200, null=True)),
                 (
+            options={
+                "ordering": ("-created",),
+            },
+        ),
+    ]
