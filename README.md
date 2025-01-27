@@ -143,6 +143,12 @@ The built specifications report generates a CSV file containing the specificatio
 
 ### API Endpoint
 
+| Method | Endpoint                                                      | Description                        |
+|--------|---------------------------------------------------------------|------------------------------------|
+| GET    | /api/stuffs/specifications/export_built_specification_report/ | Generate a CSV report of built specifications |
+
+### Implementation
+
 - **Model Manager**:
   - `ReportManager.built_count`: Method that groups by `code_number` and counts the number of specifications in the "Built" status for each `code_number`.
 
