@@ -86,6 +86,15 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created",
+                    model_utils.fields.AutoCreatedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="created",
+                    ),
+                ),
+                (
+                    "modified",
+                    model_utils.fields.AutoLastModifiedField(
                     "specification",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
