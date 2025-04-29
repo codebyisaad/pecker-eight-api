@@ -95,6 +95,14 @@ class Migration(migrations.Migration):
                 (
                     "modified",
                     model_utils.fields.AutoLastModifiedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="modified",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("group_code", models.CharField(max_length=50)),
+                (
                     "specification",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
