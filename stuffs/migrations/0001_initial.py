@@ -139,6 +139,14 @@ class Migration(migrations.Migration):
                 ("description", models.TextField()),
                 ("part_code", models.CharField(blank=True, max_length=200, null=True)),
                 (
+                    "group",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="components",
+                        to="stuffs.group",
+                    ),
+                ),
             options={
                 "ordering": ("-created",),
             },
