@@ -46,3 +46,8 @@ class Component(TimeStampedModel):
     class Meta:
         ordering = ("-created",)
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Component-detail", kwargs={"pk": self.pk})
