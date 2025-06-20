@@ -148,6 +148,10 @@ class SpecificationCloneSerializer(serializers.Serializer):
 
 
 
+class SpecificationImportExportSerializer(SpecificationSerializer):
+    groups = GroupImportSerializer(many=True, required=False)
+
+
 class SpecificationImportSerializer(serializers.Serializer):
     specifications = SpecificationImportExportSerializer(many=True)
 
