@@ -88,3 +88,4 @@ class GroupSerializerTest(TestCase):
         with self.assertRaises(ValidationError):
             serializer.is_valid(raise_exception=True)
 
+
