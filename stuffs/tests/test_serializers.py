@@ -61,6 +61,12 @@ class GroupSerializerTest(TestCase):
         with self.assertRaises(ValidationError):
             serializer.is_valid(raise_exception=True)
 
+class ComponentSerializerTest(TestCase):
+    def setUp(self):
+        self.specification = SpecificationFactory()
+        self.group = GroupFactory(specification=self.specification)
+        self.component = ComponentFactory(specification=self.specification, group=self.group)
+
     def test_validate_group(self):
         another_specification = SpecificationFactory()
         another_group = GroupFactory(specification=another_specification)
