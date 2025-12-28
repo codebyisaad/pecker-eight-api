@@ -155,6 +155,15 @@ class Migration(migrations.Migration):
                         to="stuffs.group",
                     ),
                 ),
+                (
+                    "specification",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="components",
+                        to="stuffs.specification",
+                    ),
+                ),
+            ],
             options={
                 "ordering": ("-created",),
             },
