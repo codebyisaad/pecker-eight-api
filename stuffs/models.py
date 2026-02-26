@@ -36,6 +36,13 @@ class Group(TimeStampedModel):
     class Meta:
         ordering = ("-created",)
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("group-detail", kwargs={"pk": self.pk})
+
+
 class Component(TimeStampedModel):
     name = models.CharField(max_length=200)
     description = models.TextField()

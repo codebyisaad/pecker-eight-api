@@ -97,6 +97,10 @@ class ComponentSerializerTest(TestCase):
             serializer.is_valid(raise_exception=True)
 
 
+class PartCodeAssignmentSerializerTest(TestCase):
+    def setUp(self):
+        self.component = ComponentFactory(part_code="")
+
     def test_part_code_assignment(self):
         serializer = PartCodeAssignmentSerializer(self.component, data={"part_code": "PART001"}, partial=True)
         self.assertTrue(serializer.is_valid())
