@@ -102,3 +102,8 @@ class ComponentSerializerTest(TestCase):
         self.assertTrue(serializer.is_valid())
         self.assertEqual(serializer.validated_data["part_code"], "PART001")
 
+    def test_validate_clone(self):
+        data = {"include_parts": True}
+        serializer = SpecificationCloneSerializer(data=data)
+        with self.assertRaises(ValidationError):
+            serializer.is_valid(raise_exception=True)
