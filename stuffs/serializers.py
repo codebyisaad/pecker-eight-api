@@ -172,3 +172,11 @@ class SpecificationImportSerializer(serializers.Serializer):
             # Create nested groups and components
             self.create_groups(groups_data, specification)
 
+            created_specifications.append(specification)
+
+        return created_specifications
+
+    def create_specification(self, spec_data):
+        """Create a specification instance."""
+        return Specification.objects.create(**spec_data)
+
