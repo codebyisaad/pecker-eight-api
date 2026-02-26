@@ -180,3 +180,10 @@ class SpecificationImportSerializer(serializers.Serializer):
         """Create a specification instance."""
         return Specification.objects.create(**spec_data)
 
+        return group_serializer.save(specification=specification)
+
+    def create_components(self, components_data, group=None, specification=None):
+        """Create component instances."""
+        component_serializer = ComponentSerializer(data=components_data, many=True)
+        component_serializer.is_valid(raise_exception=True)
+        component_serializer.save(group=group, specification=specification)
