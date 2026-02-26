@@ -180,6 +180,19 @@ class SpecificationImportSerializer(serializers.Serializer):
         """Create a specification instance."""
         return Specification.objects.create(**spec_data)
 
+    def create_groups(self, groups_data, specification):
+        """Create group instances and their nested components."""
+        for group_data in groups_data:
+            components_data = group_data.pop("components", [])
+            group = self.create_group(group_data, specification)
+
+            self.create_components(components_data, group, specification)
+
+    def create_group(self, group_data, specification):
+        """Create a group instance."""
+        group_serializer = GroupSerializer(data=group_data)
+        group_serializer.is_valid(raise_exception=True)
+
         return group_serializer.save(specification=specification)
 
     def create_components(self, components_data, group=None, specification=None):
