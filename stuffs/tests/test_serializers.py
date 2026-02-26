@@ -106,6 +106,18 @@ class PartCodeAssignmentSerializerTest(TestCase):
         self.assertTrue(serializer.is_valid())
         self.assertEqual(serializer.validated_data["part_code"], "PART001")
 
+class SpecificationCloneSerializerTest(TestCase):
+    def setUp(self):
+        self.specification = SpecificationFactory()
+        self.group = GroupFactory(specification=self.specification)
+        self.component = ComponentFactory(specification=self.specification, group=self.group)
+
+    def test_clone_specification(self):
+        data = {"include_parts": True}
+        serializer = SpecificationCloneSerializer(data=data, specification=self.specification)
+        self.assertTrue(serializer.is_valid())
+        cloned_specification = serializer.clone()
+
     def test_validate_clone(self):
         data = {"include_parts": True}
         serializer = SpecificationCloneSerializer(data=data)
