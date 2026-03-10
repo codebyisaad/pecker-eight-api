@@ -42,3 +42,11 @@ class ImportSpecificationsTest(TestCase):
         self.assertEqual(Group.objects.count(), 2)
         self.assertEqual(Component.objects.count(), 3)
 
+    def test_import_specifications_invalid_data(self):
+        invalid_payload = {
+            "specifications": [
+                {"name": "", "code_number": "SPEC001", "completed": False, "status": "Planning Phase", "groups": []}
+            ]
+        }
+        response = self.client.post(self.url, data=invalid_payload, format="json")
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
