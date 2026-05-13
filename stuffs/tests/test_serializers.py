@@ -119,6 +119,11 @@ class SpecificationCloneSerializerTest(TestCase):
         self.assertTrue(serializer.is_valid())
         cloned_specification = serializer.clone()
 
+        self.assertNotEqual(cloned_specification.pk, self.specification.pk)
+        self.assertEqual(cloned_specification.status, "Design Phase")
+        self.assertEqual(cloned_specification.groups.count(), self.specification.groups.count())
+        self.assertEqual(cloned_specification.components.count(), self.specification.components.count())
+
     def test_validate_clone(self):
         data = {"include_parts": True}
         serializer = SpecificationCloneSerializer(data=data)
