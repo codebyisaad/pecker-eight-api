@@ -37,6 +37,8 @@ class ImportSpecificationsTest(TestCase):
             ]
         }
 
+    def test_import_specifications_success(self):
+        response = self.client.post(self.url, data=self.valid_payload, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Specification.objects.count(), 1)
         self.assertEqual(Group.objects.count(), 2)
